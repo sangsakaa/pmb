@@ -6,7 +6,6 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <center>
-            <img src="public/img/logo.png" alt="" srcset="" class=" justify-items-center">
             <img src="{{asset('img/logo.png')}}" width="100" alt="">
             <p class=" dark:text-red-600 font-semibold">PMB UNIWA WAHIDIYAH</p>
         </center>
