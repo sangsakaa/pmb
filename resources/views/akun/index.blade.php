@@ -5,14 +5,45 @@
             <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Dashboard Akun Manajemen') }}
             </h2>
-            <x-button target="_blank" href="https://github.com/kamona-wd/kui-laravel-breeze" variant="black" class="justify-center max-w-xs gap-2">
-                <x-icons.github class="w-6 h-6" aria-hidden="true" />
-                <span>Star on Github</span>
-            </x-button>
+
+            <a href="/buatakunMahasiswa" class=" bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500">Buat akun Mahasiswa</a>
         </div>
     </x-slot>
-
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        {{ __("You're logged in!")  }}
+        <table class=" overflow-auto border w-full ">
+            <thead>
+                <tr>
+                    <th class=" px-1 py-1 border">No</th>
+                    <th class=" px-1 py-1 border">Nomor Induk Kependudukan</th>
+                    <th class=" px-1 py-1 border">Calon Mahasiswa</th>
+                    <th class=" px-1 py-1 border">Username</th>
+                    <th class=" px-1 py-1 border">Password</th>
+                    <th class=" px-1 py-1 border">ACT</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($DataUser as $User)
+                <tr class=" border">
+                    <th class=" border px-1 py-1">{{$loop->iteration}}</th>
+                    <td class=" border px-1 py-1">{{$User->nomor_induk_penduduk}}</td>
+                    <td class=" border px-1 py-1">{{$User->name}}</td>
+                    <td class=" border px-1 py-1">{{$User->email}}</td>
+                    <td class=" border px-1 py-1">{{$User->nomor_induk_penduduk}}</td>
+                    <td class=" border px-1 py-1 text-center">
+                        <form action="/manajemen-akun/{{$User->id}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button class=" text-red-600">
+                                <x-icons.user></x-icons.user>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+
     </div>
 </x-app-layout>

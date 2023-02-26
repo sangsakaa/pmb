@@ -11,8 +11,27 @@
             </x-button>
         </div>
     </x-slot>
-
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
         {{ __("You're logged in!")  }}
+        <p>
+            <span> Anda Sudah membuat Akun Konfirmasi bagian Panita Penerima Mahasiswa Baru</span>
+        </p>
     </div>
+    @can('super admin')
+    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+        {{ __("You're logged in!")  }}
+        <p>
+            <span> Anda Sudah membuat Akun Konfimasi bagian Panita Penerima Mahasiswa Barux</span>
+        </p>
+    </div>
+    @endcan
+    @hasrole('mahasiswa')
+    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+        {{ __("You're logged in!")  }}
+        <p>
+            <span> Anda Sudah membuat Akun Konfimasi bagian Panita Penerima Mahasiswa Barux</span>
+        </p>
+    </div>
+    @endhasrole
+
 </x-app-layout>

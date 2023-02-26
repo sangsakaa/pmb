@@ -20,11 +20,22 @@
         Menu Utama
     </div>
 
+    @role('super admin')
     <x-sidebar.link title="Manajemen Akun" href="{{ route('manajemen-akun') }}" :isActive="request()->routeIs('manajemen-akun')">
         <x-slot name="icon">
             <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
+
+    @endrole
+    @role('mahasiswa')
+    <x-sidebar.link title="Mahasiswa" href="#">
+        <x-slot name="icon">
+            <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+
+    @endrole
 
 
     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -19,13 +20,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/buatakunMahasiswa', [RegisteredUserController::class, 'buatAkunMahasiswa'])->middleware(['auth']);
+Route::delete('/manajemen-akun/{user}', [RegisteredUserController::class, 'destroy'])->middleware(['auth']);
+    
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-
+    
     Route::get('manajemen-akun', [AkunController::class, 'index'])->name('manajemen-akun');
+    Route::get('create-akun', [AkunController::class, 'create'])->name('create-akun');
+
 
 
 
