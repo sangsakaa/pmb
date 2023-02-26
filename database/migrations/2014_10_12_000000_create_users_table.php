@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->bigInteger('nomor_induk_penduduk')->nullable();
+            $table->string('file_ktp')->nullable();
+            $table->string('file')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
