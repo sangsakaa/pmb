@@ -1,12 +1,22 @@
 <x-app-layout>
     @section('title', '| Dashboard Akun Manajemen' )
-    <x-slot name="header">
-        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 class="text-xl font-semibold leading-tight">
-                {{ __('Dashboard Akun Manajemen') }}
-            </h2>
 
-            <a href="/buatakunMahasiswa" class=" bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500">Buat akun Mahasiswa</a>
+    <x-slot name="header">
+        <div class="flex p-2 bg-white flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <h2 class="text-xl p-2 font-semibold leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+            <div class=" grid justify-end grid-cols-2">
+                <div class=" px-4">
+                    @if ($pesan = Session::get('status'))
+                    <p class=" py-1">{{$pesan}}</p>
+                    @endif
+                </div>
+                <div>
+                    <a href="/buatakunMahasiswa" class="  bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500">Buat akun Mahasiswa</a>
+                </div>
+            </div>
+
         </div>
     </x-slot>
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">

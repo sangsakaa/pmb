@@ -36,8 +36,6 @@
     </x-sidebar.link>
 
     @endrole
-
-
     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">
         Menu Pendukung
     </div>

@@ -91,21 +91,26 @@ class RegisteredUserController extends Controller
     }
     public function buatAkunMahasiswa()
     {
-        $dataUser = User::where('users.nomor_induk_penduduk', null)->get();
+        $users = User::get();
         $jumlahUser = 0;
-        foreach ($dataUser as $User) {
-            $user = User::create([
-                'name' => $User->name,
-                'email' => $User->nomor_induk_penduduk . '@uniwa.ac.id',
-                'password' => Hash::make($User->nomor_induk_penduduk),
-                'nomor_induk_penduduk' => $User->nomor_induk_penduduk,
 
-            ]);
+        foreach ($users as $user) {
+            if (strpos($user->email, '@uniwa.ac.id') !== false) {
+                continue; // skip jika email mengandung '@uniwa.ac.id'
+            }
+
             $user->assignRole('mahasiswa');
             $user->givePermissionTo('show post');
             $jumlahUser++;
         }
-        return redirect()->back()->with('status', $jumlahUser . ' user untuk siswa telah dibuat');
+
+
+
+
+        return redirect()->back()->with('status', $jumlahUser . ' user mahasiswa telah dibuat');
+
+
+
     }
     public function destroy(User $user)
     {
