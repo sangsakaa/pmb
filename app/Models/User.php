@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'file',
+        'file_ktp',
         'nomor_induk_penduduk',
         
     ];
