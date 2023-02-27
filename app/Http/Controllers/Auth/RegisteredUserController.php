@@ -62,6 +62,7 @@ class RegisteredUserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        
 
         if ($request->hasFile('file') && $request->file('file')->isValid() && $request->hasFile('file_ktp') && $request->file('file_ktp')->isValid()) {
             $file = $request->file('file');
