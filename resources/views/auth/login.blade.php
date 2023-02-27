@@ -8,7 +8,7 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <center>
             <img src="{{asset('img/logo.png')}}" width="100" alt="">
-            <p class=" dark:text-red-600 font-semibold">PMB UNIWA WAHIDIYAH</p>
+            <p class=" dark:text-red-600 font-semibold">PMB UNIWA</p>
         </center>
         <form method="POST" action="{{ route('login') }}">
             @csrf
