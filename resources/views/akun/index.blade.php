@@ -2,32 +2,31 @@
     @section('title', '| Dashboard Akun Manajemen' )
 
     <x-slot name="header">
-        <div class="flex p-2 bg-white flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 class="text-xl p-2 font-semibold leading-tight">
+        <div class="flex p-2 bg-white flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <h2 class="text-xl py-1 px-2 font-semibold leading-tight">
                 {{ __('Dashboard') }}
             </h2>
-            <div class=" grid justify-end grid-cols-2">
-                <div class=" px-4">
+            <div class="   font-semibold grid justify-end grid-cols-1 text-center sm:grid-cols-1">
+                <a href="/buatakunMahasiswa" class="  bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500">Buat akun Mahasiswa</a>
+                <div class=" ">
                     @if ($pesan = Session::get('status'))
-                    <p class=" py-1">{{$pesan}}</p>
+                    <p class=" ">{{$pesan}}</p>
                     @endif
-                </div>
-                <div>
-                    <a href="/buatakunMahasiswa" class="  bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500">Buat akun Mahasiswa</a>
                 </div>
             </div>
 
+
         </div>
     </x-slot>
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        <table class=" overflow-auto border w-full ">
+    <div class="p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+        <table class="  border w-full ">
             <thead>
                 <tr>
                     <th class=" px-1 py-1 border">No</th>
                     <th class=" px-1 py-1 border">Nomor Induk Kependudukan</th>
                     <th class=" px-1 py-1 border">Calon Mahasiswa</th>
                     <th class=" px-1 py-1 border">Username</th>
-                    <th class=" px-1 py-1 border">Password</th>
+
                     <th class=" px-1 py-1 border">ACT</th>
 
                 </tr>
@@ -36,10 +35,10 @@
                 @foreach($DataUser as $User)
                 <tr class=" border">
                     <th class=" border px-1 py-1">{{$loop->iteration}}</th>
-                    <td class=" border px-1 py-1">{{$User->nomor_induk_penduduk}}</td>
+                    <td class=" border px-1 py-1 text-center">{{$User->nomor_induk_penduduk}}</td>
                     <td class=" border px-1 py-1">{{$User->name}}</td>
-                    <td class=" border px-1 py-1">{{$User->email}}</td>
-                    <td class=" border px-1 py-1">{{$User->nomor_induk_penduduk}}</td>
+                    <td class=" border px-1 py-1 text-center">{{$User->email}}</td>
+
                     <td class=" border px-1 py-1 text-center">
                         <form action="/manajemen-akun/{{$User->id}}" method="post">
                             @method('delete')

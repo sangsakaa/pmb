@@ -62,7 +62,6 @@ class RegisteredUserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        
 
         if ($request->hasFile('file') && $request->file('file')->isValid() && $request->hasFile('file_ktp') && $request->file('file_ktp')->isValid()) {
             $file = $request->file('file');
@@ -78,7 +77,7 @@ class RegisteredUserController extends Controller
                 'email' => $request->email,
                 'file' => $path,
                 'file_ktp' => $path_ktp,
-                'password' => Hash::make($request->password),
+                'password' => Hash::make($request->nomor_induk_penduduk),
             ]);
 
             event(new Registered($user));
@@ -96,6 +95,11 @@ class RegisteredUserController extends Controller
         $jumlahUser = 0;
 
         foreach ($users as $user) {
+            // lewati pengguna yang sudah memiliki peran
+            if ($user->hasRole('mahasiswa')) {
+                continue;
+            }
+
             if (strpos($user->email, '@uniwa.ac.id') !== false) {
                 continue; // skip jika email mengandung '@uniwa.ac.id'
             }

@@ -15,6 +15,7 @@ class AkunController extends Controller
     }
     public function create()
     {
+        
         return view('akun.create');
     }
 }
