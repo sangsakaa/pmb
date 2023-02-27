@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('title', '| Formulir Calon Mahasiswa' )
     <x-slot name="header">
-        <div class="flex bg-white flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex bg-white dark:bg-dark-eval-0 dark:text-purple-500 flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 class="sm:text-xl text-sm p-4 font-semibold leading-tight">
                 {{ __('Dashboard | Formulir Calon Mahasiswa') }}
             </h2>
@@ -26,8 +26,8 @@
                         <label for="" class="">Nama Lengkap </label>
                     </div>
                     <div class=" ">
-                        <input type="text" name="" id="" class=" w-full py-1 " placeholder=" Masukan Nama Sesui ID : KTP,SIM,IJAZAH" required>
-                        <small class=" text-red-600">Wajib diisi sesui Kartu Indentitas</small>
+                        <input type="text" name="" id="" class=" w-full py-1 " placeholder=" Masukan Nama Sesui ID " required>
+                        <small class=" text-red-600">Wajib diisi sesui Kartu Indentitas : KTP,SIM,IJAZAH</small>
                     </div>
                 </div>
                 <div class=" w-full  gap-2">
@@ -59,7 +59,7 @@
                 </div>
                 <div class=" w-full  gap-2">
                     <div class="  ">
-                        <a href="#" class=" bg-red-600  text-white px-3 py-1"> Batal</a>
+                        <a href="create-formulir" class=" bg-red-600  text-white px-3 py-1"> Batal</a>
                         <button class=" bg-red-600  text-white px-1 py-1"> simpan</button>
                     </div>
                 </div>
