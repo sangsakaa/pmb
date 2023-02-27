@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\FormulirController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -36,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::get('manajemen-akun', [AkunController::class, 'index'])->name('manajemen-akun')->middleware(['auth']);
     Route::get('create-akun', [AkunController::class, 'create'])->name('create-akun');
     Route::get('/buatakunMahasiswa', [RegisteredUserController::class, 'buatAkunMahasiswa'])->middleware(['auth']);
+
+
+    // Controller Formulir
+    Route::get('create-formulir', [FormulirController::class, 'create'])->name('create-formulir');
 
 
 
