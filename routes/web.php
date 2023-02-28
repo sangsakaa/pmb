@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('manajemen-akun', [AkunController::class, 'index'])->name('manajemen-akun')->middleware(['auth']);
     Route::get('create-akun', [AkunController::class, 'create'])->name('create-akun');
     Route::get('/buatakunMahasiswa', [RegisteredUserController::class, 'buatAkunMahasiswa'])->middleware(['auth']);
+    Route::get('/buatakunPerMahasiswa/{user}', [RegisteredUserController::class, 'buatAkunPerMahasiswa'])->middleware(['auth']);
 
 
     // Controller Formulir

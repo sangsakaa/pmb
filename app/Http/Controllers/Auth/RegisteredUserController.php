@@ -108,14 +108,22 @@ class RegisteredUserController extends Controller
             $user->givePermissionTo('show post');
             $jumlahUser++;
         }
-
-
-
-
         return redirect()->back()->with('status', $jumlahUser . ' user mahasiswa telah dibuat');
-
-
-
+    }
+    public function buatAkunPerMahasiswa(User $user)
+    {
+        $user = User::find($user->id);
+        $jumlahUser = 0;
+        if ($user) {
+            if (!$user->hasRole('mahasiswa') && strpos($user->email, '@uniwa.ac.id') === false) {
+                $user->assignRole('mahasiswa');
+                $user->givePermissionTo('show post');
+                $jumlahUser = 1;
+            }
+        } else {
+            // lakukan tindakan jika pengguna dengan ID tertentu tidak ditemukan
+        }
+        return redirect()->back()->with('status', $jumlahUser . ' user mahasiswa telah dibuat');
     }
     public function destroy(User $user)
     {
