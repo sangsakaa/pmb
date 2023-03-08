@@ -17,20 +17,7 @@
         </div>
     </x-slot>
     <div class="p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-
-
-
-
-
         <img src="{{ asset(Storage::url('public/dokumen/' . $user->file)) }}" alt="File">
         <img src="{{ asset(Storage::url('public/dokumen/' . $user->file_ktp)) }}" alt="File">
-
-
-
-
-
-
-
-
     </div>
 </x-app-layout>
