@@ -16,8 +16,15 @@
 
         </div>
     </x-slot>
-    <div class="p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        <img src="{{ asset(Storage::url('/dokumen/' . $user->file)) }}" alt="{{$user->file}}">
-        <img src="{{ asset(Storage::url('/dokumen/' . $user->file_ktp)) }}" alt="{{$user->file_ktp}}">
+    <div class="p-6 grid grid-cols-2  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+        <div>
+            <img src="{{ asset(Storage::url('/dokumen/' . $user->file)) }}" alt="{{$user->file}}">
+            <span>Nama File : {{$user->file}}</span>
+        </div>
+        <div>
+            <img src="{{ asset(Storage::url('/dokumen/' . $user->file_ktp)) }}" alt="{{$user->file_ktp}}">
+            <span>Nama File : {{$user->file_ktp}}</span>
+        </div>
     </div>
+
 </x-app-layout>
