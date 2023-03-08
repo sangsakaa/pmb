@@ -18,29 +18,23 @@
 
         </div>
     </x-slot>
-    <div class="p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+    <div class="p-2 sm:p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
         <table class="  border w-full ">
             <thead>
                 <tr>
                     <th class=" px-1 py-1 border">No</th>
-                    <th class=" px-1 py-1 border">Nomor Induk Kependudukan</th>
-                    <th class=" px-1 py-1 border">Calon Mahasiswa</th>
+                    <th class=" px-1 py-1 border">User</th>
                     <th class=" px-1 py-1 border">Username</th>
-
                     <th class=" px-1 py-1 border">ACT</th>
-
                 </tr>
             </thead>
             <tbody>
                 @foreach($DataUser as $User)
                 <tr class=" border">
                     <th class=" border px-1 py-1">{{$loop->iteration}}</th>
-                    <td class=" border px-1 py-1 text-center"><a href="/detail-akun/{{$User->id}}">{{$User->nomor_induk_penduduk}}</a></td>
-
-                    <td class=" border px-1 py-1">{{$User->name}}</td>
+                    <td class=" border px-1 py-1 "><a href="/detail-akun/{{$User->id}}">{{$User->name}}</a></td>
                     <td class=" border px-1 py-1 text-center">{{$User->email}}</td>
-
-                    <td class=" border flex gap-1 px-1 py-1 text-center justify-center">
+                    <td class=" sm:flex sm:grid-cols-1 grid gap-1 px-1 py-1 text-center justify-center">
                         <form action="/manajemen-akun/{{$User->id}}" method="post">
                             @method('delete')
                             @csrf

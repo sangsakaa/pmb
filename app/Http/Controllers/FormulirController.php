@@ -17,4 +17,11 @@ class FormulirController extends Controller
             ['user' => $user]
         );
     }
+    public function info()
+    {
+        return view(
+            'formulir.info',
+            
+        );
+    }
 }

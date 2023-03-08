@@ -16,12 +16,16 @@
 
         </div>
     </x-slot>
-    <div class="p-6 grid grid-cols-2 gap-2  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+    <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-2  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
         <div>
+            <label for="">Bukti Pembayaran</label>
+            <p for="">Nama : {{$user->name}}</p>
             <img src="{{ asset(Storage::url('/dokumen/' . $user->file)) }}" alt="{{$user->file}}" width="100%" height="100px">
             <span>Nama File : {{$user->file}}</span>
         </div>
         <div>
+            <label for="">Kartu Identitas Kependudukan </label>
+            <p for="">NIK : {{$user->nomor_induk_penduduk}}</p>
             <img src="{{ asset(Storage::url('/dokumen/' . $user->file_ktp)) }}" alt="{{$user->file_ktp}}" width="100%" height="100px">
             <span>Nama File : {{$user->file_ktp}}</span>
         </div>

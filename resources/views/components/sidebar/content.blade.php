@@ -19,6 +19,11 @@
     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">
         Menu Utama
     </div>
+    <x-sidebar.link title="Info Penting" href="{{ route('info-formulir') }}" :isActive="request()->routeIs('info-formulir')">
+        <x-slot name="icon">
+            <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
 
     @role('super admin')
     <x-sidebar.link title="Manajemen Akun" href="{{ route('manajemen-akun') }}" :isActive="request()->routeIs('manajemen-akun')">

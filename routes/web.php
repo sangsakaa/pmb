@@ -55,10 +55,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/buatakunMahasiswa', [RegisteredUserController::class, 'buatAkunMahasiswa'])->middleware(['auth']);
     Route::get('/buatakunPerMahasiswa/{user}', [RegisteredUserController::class, 'buatAkunPerMahasiswa'])->middleware(['auth']);
     Route::delete('/manajemen-akun/{user}', [RegisteredUserController::class, 'destroy']);
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 
     // Controller Formulir
     Route::get('create-formulir', [FormulirController::class, 'create'])->name('create-formulir');
+    Route::get('info-formulir', [FormulirController::class, 'info'])->name('info-formulir');
 
 
 

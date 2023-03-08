@@ -111,6 +111,7 @@ class RegisteredUserController extends Controller
 
             $user->assignRole('mahasiswa');
             $user->givePermissionTo('show post');
+            $user->givePermissionTo('edit post');
             $jumlahUser++;
         }
         return redirect()->back()->with('status', $jumlahUser . ' user mahasiswa telah dibuat');
