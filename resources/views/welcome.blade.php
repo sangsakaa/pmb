@@ -421,7 +421,7 @@
                         <a href="{{ route('login') }}" class="text-sm text-gray-200 dark:text-gray-200 uppercase ">Log in</a>
 
                         @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-900 dark:text-gray-200 uppercase ">Register</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-200 font-semibold  dark:text-gray-200 uppercase ">Register</a>
                         @endif
                         @endauth
                     </div>
@@ -435,8 +435,9 @@
                     </div>
                 </div>
 
-                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    SPMB : v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0 uppercase">
+                    <!-- <span> SPMB : v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</span> -->
+                    <span class=" uppercase">TAHUN AKADEMIK 2023/2024</span>
                 </div>
             </div>
         </div>

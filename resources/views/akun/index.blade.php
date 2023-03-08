@@ -35,7 +35,8 @@
                 @foreach($DataUser as $User)
                 <tr class=" border">
                     <th class=" border px-1 py-1">{{$loop->iteration}}</th>
-                    <td class=" border px-1 py-1 text-center">{{$User->nomor_induk_penduduk}}</td>
+                    <td class=" border px-1 py-1 text-center"><a href="/detail-akun/{{$User->id}}">{{$User->nomor_induk_penduduk}}</a></td>
+
                     <td class=" border px-1 py-1">{{$User->name}}</td>
                     <td class=" border px-1 py-1 text-center">{{$User->email}}</td>
 

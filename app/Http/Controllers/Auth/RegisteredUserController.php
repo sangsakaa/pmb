@@ -64,19 +64,24 @@ class RegisteredUserController extends Controller
         }
 
         if ($request->hasFile('file') && $request->file('file')->isValid() && $request->hasFile('file_ktp') && $request->file('file_ktp')->isValid()) {
-            $file = $request->file('file');
-            $nama_file = $file->getClientOriginalName();
-            $path = $file->move(public_path('file'), $nama_file);
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $nama_file_ktp = $file->getClientOriginalName();
+                $path_ktp = $file->storeAs('dokumen', $nama_file_ktp, 'public');
+            }
 
-            $file_ktp = $request->file('file_ktp');
-            $nama_file_ktp = $file_ktp->getClientOriginalName();
-            $path_ktp = $file_ktp->move(public_path('file'), $nama_file_ktp);
+            if ($request->hasFile('file_ktp')) {
+                $file_ktp = $request->file('file_ktp');
+                $nama_file_ktp = $file_ktp->getClientOriginalName();
+                $path_ktp = $file_ktp->storeAs('dokumen', $nama_file_ktp, 'public');
+            }
+
 
             $user = User::create(['nomor_induk_penduduk' => $request->nomor_induk_penduduk,
                 'name' => $request->name,
                 'email' => $request->email,
-                'file' => $path,
-                'file_ktp' => $path_ktp,
+                'file' => $file->getClientOriginalName(),
+                'file_ktp' => $file_ktp->getClientOriginalName(),
                 'password' => Hash::make($request->nomor_induk_penduduk),
             ]);
 

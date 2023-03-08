@@ -18,4 +18,10 @@ class AkunController extends Controller
         
         return view('akun.create');
     }
+    public function detail(User $user)
+    {
+        $user = User::find($user->id);
+        return view('akun.detail', ['user' => $user]);
+        
+    }
 }

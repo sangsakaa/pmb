@@ -33,11 +33,28 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::delete('/manajemen-akun/{user}', [RegisteredUserController::class, 'destroy']);
+
+
+
+
+
+    // Akun dan Akun Controller
     Route::get('manajemen-akun', [AkunController::class, 'index'])->name('manajemen-akun')->middleware(['auth']);
     Route::get('create-akun', [AkunController::class, 'create'])->name('create-akun');
+    Route::get('detail-akun/{user}', [AkunController::class, 'detail'])->name('detail-akun');
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Role Manajemen
     Route::get('/buatakunMahasiswa', [RegisteredUserController::class, 'buatAkunMahasiswa'])->middleware(['auth']);
     Route::get('/buatakunPerMahasiswa/{user}', [RegisteredUserController::class, 'buatAkunPerMahasiswa'])->middleware(['auth']);
+    Route::delete('/manajemen-akun/{user}', [RegisteredUserController::class, 'destroy']);
 
 
     // Controller Formulir
