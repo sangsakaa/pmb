@@ -2,7 +2,7 @@
     @section('title', '| Detail Akun User')
 
     <x-slot name="header">
-        <div class="flex p-2 bg-white flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <div class="flex p-2 bg-white dark:bg-dark-eval-1 flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <h2 class="text-xl py-1 px-2 font-semibold leading-tight">
                 {{ __('Dashboard Detail User') }}
             </h2>
@@ -17,7 +17,7 @@
         </div>
     </x-slot>
     <div class="p-6  overflow-auto bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        <img src="{{ asset(Storage::url('public/dokumen/' . $user->file)) }}" alt="File">
-        <img src="{{ asset(Storage::url('public/' . $user->file_ktp)) }}" alt="File">
+        <img src="{{ asset(Storage::url('public/dokumen/' . $user->file)) }}" alt="{{$user->file}}">
+        <img src="{{ asset(Storage::url('public/dokumen/' . $user->file_ktp)) }}" alt="{{$user->file_ktp}}">
     </div>
 </x-app-layout>

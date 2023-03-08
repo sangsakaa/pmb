@@ -2,7 +2,7 @@
     @section('title', '| Dashboard Akun Manajemen' )
 
     <x-slot name="header">
-        <div class="flex p-2 bg-white flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <div class="flex p-2 bg-white dark:bg-dark-eval-1 flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <h2 class="text-xl py-1 px-2 font-semibold leading-tight">
                 {{ __('Dashboard') }}
             </h2>
@@ -10,7 +10,7 @@
                 <a href="/buatakunMahasiswa" class="  bg-sky-400 py-1 px-4 rounded-md text-white hover:bg-purple-500" title=" Buat Akun Kolektif">Buat akun Mahasiswa</a>
                 <div class=" ">
                     @if ($pesan = Session::get('status'))
-                    <p class=" ">{{$pesan}}</p>
+                    <div id="pesan" class="d-none">{{$pesan}}</div>
                     @endif
                 </div>
             </div>
