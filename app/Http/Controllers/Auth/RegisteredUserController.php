@@ -66,14 +66,14 @@ class RegisteredUserController extends Controller
         if ($request->hasFile('file') && $request->file('file')->isValid() && $request->hasFile('file_ktp') && $request->file('file_ktp')->isValid()) {
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                $nama_file_ktp = $file->getClientOriginalName();
-                $path_ktp = $file->storeAs('dokumen', $nama_file_ktp, 'public');
+                // $nama_file_ktp = $file->getClientOriginalName();
+                // $path_ktp = $file->storeAs('dokumen', $nama_file_ktp, 'public');
             }
 
             if ($request->hasFile('file_ktp')) {
                 $file_ktp = $request->file('file_ktp');
-                $nama_file_ktp = $file_ktp->getClientOriginalName();
-                $path_ktp = $file_ktp->storeAs('dokumen', $nama_file_ktp, 'public');
+                // $nama_file_ktp = $file_ktp->getClientOriginalName();
+                // $path_ktp = $file_ktp->storeAs('dokumen', $nama_file_ktp, 'public');
             }
 
 
