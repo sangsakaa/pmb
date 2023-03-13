@@ -43,13 +43,12 @@
         Menu Pendukung
     </div>
 
-    <x-sidebar.dropdown title="Setting" :active="Str::startsWith(request()->route()->uri(), 'setting')">
+    <x-sidebar.dropdown title="Setting" :active="Str::startsWith(request()->route()->uri(), 'buttons')">
         <x-slot name="icon">
             <x-icons.setting class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
-        <x-sidebar.sublink title="Semester" href="{{ route('setting') }}" :active="request()->routeIs('setting')" />
-        <x-sidebar.sublink title="Periode" href="{{ route('setting') }}" :active="request()->routeIs('setting')" />
-        <x-sidebar.sublink title="Gelombang" href="{{ route('setting') }}" :active="request()->routeIs('setting')" />
+        <x-sidebar.sublink title="Semester" href="{{ route('semester') }}" :active="request()->routeIs('semester')" />
+        <x-sidebar.sublink title="Periode" href="{{ route('periode') }}" :active="request()->routeIs('periode')" />
     </x-sidebar.dropdown>
 
 </x-perfect-scrollbar>

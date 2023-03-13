@@ -3,8 +3,10 @@
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\PeriodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SettingController;
 
 /*
@@ -63,8 +65,14 @@ Route::middleware('auth')->group(function () {
     Route::get('create-formulir', [FormulirController::class, 'create'])->name('create-formulir');
     Route::get('info-formulir', [FormulirController::class, 'info'])->name('info-formulir');
     Route::get('setting', [SettingController::class, 'setting'])->name('setting');
+    // Controller Semester
+    Route::get('semester', [SemesterController::class, 'index'])->name('semester');
+    Route::post('semester', [SemesterController::class, 'store'])->name('semester');
 
+    // Controller Periode
 
+    Route::get('periode', [PeriodeController::class, 'index'])->name('periode');
+    Route::post('periode', [PeriodeController::class, 'store'])->name('periode');
 
 
 
