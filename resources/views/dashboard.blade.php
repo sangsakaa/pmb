@@ -15,26 +15,23 @@
             </x-button>
         </div>
     </x-slot>
-    @role('super admin')
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        {{ __("You're logged in!")  }}
-        <p>
-            <span> {{Auth::user()->name}}</span>
-        </p>
-    </div>
-    @endrole
 
-    @role('mahasiswa')
-    <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
+        @role('mahasiswa')
         {{ __("You're logged in!")  }}
         <p>
-            <span> Anda Sudah membuat Akun Konfirmasi Kepada PMB UNIWA</span>
+            <span> Anda Sudah Dalam Status Calon Mahasiswa </span>
         </p>
         <p class=" text-red-600  font-semibold text-sm sm:text-sm">
             <span> Calon Mahasiswa : {{Auth::user()->name}}</span>
         </p>
-
+        @endrole
+        @role('super admin')
+        Super Admin
+        @endrole
     </div>
-    @endrole
+
+
+
 
 </x-app-layout>

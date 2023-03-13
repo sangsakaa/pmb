@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FormulirController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,7 @@ Route::middleware('auth')->group(function () {
     // Controller Formulir
     Route::get('create-formulir', [FormulirController::class, 'create'])->name('create-formulir');
     Route::get('info-formulir', [FormulirController::class, 'info'])->name('info-formulir');
+    Route::get('setting', [SettingController::class, 'setting'])->name('setting');
 
 
 

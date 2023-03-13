@@ -66,17 +66,12 @@ class RegisteredUserController extends Controller
         if ($request->hasFile('file') && $request->file('file')->isValid() && $request->hasFile('file_ktp') && $request->file('file_ktp')->isValid()) {
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                // $nama_file_ktp = $file->getClientOriginalName();
-                // $path_ktp = $file->storeAs('dokumen', $nama_file_ktp, 'public');
+                
             }
 
             if ($request->hasFile('file_ktp')) {
                 $file_ktp = $request->file('file_ktp');
-                // $nama_file_ktp = $file_ktp->getClientOriginalName();
-                // $path_ktp = $file_ktp->storeAs('dokumen', $nama_file_ktp, 'public');
             }
-
-
             $user = User::create(['nomor_induk_penduduk' => $request->nomor_induk_penduduk,
                 'name' => $request->name,
                 'email' => $request->email,
@@ -108,7 +103,6 @@ class RegisteredUserController extends Controller
             if (strpos($user->email, '@uniwa.ac.id') !== false) {
                 continue; // skip jika email mengandung '@uniwa.ac.id'
             }
-
             $user->assignRole('mahasiswa');
             $user->givePermissionTo('show post');
             $user->givePermissionTo('edit post');
@@ -118,17 +112,25 @@ class RegisteredUserController extends Controller
     }
     public function buatAkunPerMahasiswa(User $user)
     {
+
         $user = User::find($user->id);
         $jumlahUser = 0;
+
         if ($user) {
-            if (!$user->hasRole('mahasiswa') && strpos($user->email, '@uniwa.ac.id') === false) {
+            if (
+                !$user->hasRole('mahasiswa') && strpos($user->email, '@uniwa.ac.id') === false
+            ) {
                 $user->assignRole('mahasiswa');
-                $user->givePermissionTo('show post');
-                $jumlahUser = 1;
+                $permissions = ['show post', 'edit post', 'update post'];
+                if (!$user->hasAnyPermission($permissions)) {
+                    $user->givePermissionTo($permissions); // memberikan permission dengan array
+                    $jumlahUser = 1;
+                }
             }
         } else {
             // lakukan tindakan jika pengguna dengan ID tertentu tidak ditemukan
         }
+
         return redirect()->back()->with('status', $jumlahUser . ' user mahasiswa telah dibuat');
     }
     public function destroy(User $user)
