@@ -3,11 +3,14 @@
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\GelombangController;
+use App\Http\Controllers\Jenis_SeleksiController;
 use App\Http\Controllers\PeriodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SettingController;
+use App\Models\Gelombang;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +76,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('periode', [PeriodeController::class, 'index'])->name('periode');
     Route::post('periode', [PeriodeController::class, 'store'])->name('periode');
+    // Controller Gelombang
+
+    Route::get('gelombang', [GelombangController::class, 'index'])->name('gelombang');
+    Route::post('gelombang', [GelombangController::class, 'store'])->name('gelombang');
+    // Controller Jenis_seleksi
+
+    Route::get('jenis-seleksi', [Jenis_SeleksiController::class, 'index'])->name('jenis-seleksi');
+    Route::post('jenis-seleksi', [Jenis_SeleksiController::class, 'store'])->name('jenis-seleksi');
 
 
 

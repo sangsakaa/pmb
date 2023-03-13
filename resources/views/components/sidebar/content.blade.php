@@ -30,15 +30,6 @@
             <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
-
-    @endrole
-    @role('mahasiswa')
-    <x-sidebar.link title="Formulir" href="{{ route('create-formulir') }}" :isActive="request()->routeIs('create-formulir')">
-        <x-slot name="icon">
-            <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
-        </x-slot>
-    </x-sidebar.link>
-    @endrole
     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">
         Menu Pendukung
     </div>
@@ -49,6 +40,23 @@
         </x-slot>
         <x-sidebar.sublink title="Semester" href="{{ route('semester') }}" :active="request()->routeIs('semester')" />
         <x-sidebar.sublink title="Periode" href="{{ route('periode') }}" :active="request()->routeIs('periode')" />
+        <x-sidebar.sublink title="Gelombang" href="{{ route('gelombang') }}" :active="request()->routeIs('gelombang')" />
+        <x-sidebar.sublink title="Jenis Seleksi" href="{{ route('jenis-seleksi') }}" :active="request()->routeIs('jenis-seleksi')" />
     </x-sidebar.dropdown>
+
+    @endrole
+    @role('mahasiswa')
+    <x-sidebar.link title="Formulir" href="{{ route('create-formulir') }}" :isActive="request()->routeIs('create-formulir')">
+        <x-slot name="icon">
+            <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+    <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">
+        Menu Pendukung
+    </div>
+    @endrole
+
+
+
 
 </x-perfect-scrollbar>
