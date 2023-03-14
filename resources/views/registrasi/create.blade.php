@@ -14,7 +14,7 @@
     <div class=" grid gap-1">
         <div class="p-1 sm:p-6 overflow-hidden  bg-green-200 rounded-md shadow-md dark:bg-dark-eval-1">
             <div class=" grid grid-cols-1 p-1">
-                <span class=" capitalize text-red-600 font-semibold ">ada sudah melakuan registrasi awal terdaftar</span>
+                <span class=" capitalize text-red-600 font-semibold ">ada sudah melakuan registrasi awal</span>
 
             </div>
         </div>
