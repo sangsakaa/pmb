@@ -9,8 +9,6 @@
         </div>
     </x-slot>
 
-
-
     <form action="" method="post">
         <div class=" grid gap-1">
             <div class="p-1 sm:p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">

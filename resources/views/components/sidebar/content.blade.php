@@ -49,7 +49,7 @@
 
 
 
-    <x-sidebar.link title="Formulir" href="{{ route('create-formulir') }}" :isActive="request()->routeIs('create-formulir')">
+    <x-sidebar.link title="Registrasi" href="{{ route('registrasi-awal') }}" :isActive="request()->routeIs('registrasi-awal')">
         <x-slot name="icon">
             <x-icons.user class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>

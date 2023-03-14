@@ -8,6 +8,7 @@ use App\Http\Controllers\Jenis_SeleksiController;
 use App\Http\Controllers\PeriodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SettingController;
 use App\Models\Gelombang;
@@ -87,6 +88,9 @@ Route::middleware('auth')->group(function () {
 
 
 
+    Route::get('detail-registrasi', [RegistrasiController::class, 'index'])->name('registrasi-awal');
+    Route::get('registrasi-awal', [RegistrasiController::class, 'create'])->name('registrasi-awal');
+    Route::post('registrasi-awal', [RegistrasiController::class, 'store'])->name('registrasi-awal');
 
 
 
