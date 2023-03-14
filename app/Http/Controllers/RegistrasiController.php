@@ -31,8 +31,14 @@ class RegistrasiController extends Controller
     }
     public function create()
     {
-
-
+        $Akun = Auth::user()->id;
+        $dataRegistrasi = Registrasi::query()
+            ->join('users', 'users.id', '=', 'registrasi.users_id')
+            ->join('periode', 'periode.id', '=', 'registrasi.periode_id')
+            ->join('jenis_seleksi', 'jenis_seleksi.id', '=', 'registrasi.jenis_seleksi_id')
+            ->join('semester', 'semester.id', '=', 'periode.semester_id')
+            ->where('users_id', $Akun)
+            ->first();
         $Akun = Auth::user()->id;
         $dateNow = date('d/m/Y');
         $dataGelombang = Gelombang::all();
@@ -49,6 +55,7 @@ class RegistrasiController extends Controller
                 'dataPeriode' => $dataPeriode,
                 'dateNow' => $dateNow,
                 'Akun' => $Akun,
+                'dataRegistrasi' => $dataRegistrasi,
             ]
         );
     }

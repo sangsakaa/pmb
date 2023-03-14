@@ -9,6 +9,33 @@
         </div>
     </x-slot>
     @role('mahasiswa')
+
+    @if(isset($dataRegistrasi) && $dataRegistrasi->users_id !== null)
+    <div class=" grid gap-1">
+        <div class="p-1 sm:p-6 overflow-hidden  bg-green-200 rounded-md shadow-md dark:bg-dark-eval-1">
+            <div class=" grid grid-cols-1 p-1">
+                <span class=" capitalize text-red-600 font-semibold ">ada sudah melakuan registrasi awal terdaftar</span>
+
+            </div>
+        </div>
+    </div>
+    <div class=" py-1 grid gap-1">
+        <div class="p-1 sm:p-6 overflow-hidden  bg-green-200 rounded-md shadow-md dark:bg-dark-eval-1">
+
+            <div class=" grid grid-cols-2">
+                <div>Kode Pendaftaran</div>
+                <div> : {{$dataRegistrasi->kode_pendaftaran}}</div>
+                <div>Nama Calon Mahasiswa</div>
+                <div> : {{$dataRegistrasi->name}}</div>
+                <div>Jenis Seleksi</div>
+                <div> : {{$dataRegistrasi->jenis_seleksi}}</div>
+                <div>Periode Pendaftaran</div>
+                <div> : {{$dataRegistrasi->periode}} {{$dataRegistrasi->keterangan_semester}}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    @else
     <form action="" method="post">
         @csrf
         <div class=" grid gap-1">
@@ -74,6 +101,10 @@
             </div>
         </div>
     </form>
+    @endif
+
+
+
     @endrole
 
 </x-app-layout>
